@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "geojson": "^0.5.0",
+    "knex": "^0.95.13",
+    "pg": "^8.7.1"
+  },
+  "name": "rithm-challenge",
+  "version": "0.1.0",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "npx cross-env NODE_ENV=test jest",
+    "start": "node src/server.js",
+    "start:dev": "nodemon --watch src src/server.js"
+  },
+  "keywords": [],
+  "author": "Damian Rivas",
+  "license": "ISC",
+  "description": "Coding challenge for Rithm School",
+  "devDependencies": {
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.14",
+    "supertest": "^6.1.6"
+  }
+}
