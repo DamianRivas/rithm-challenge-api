@@ -3,7 +3,7 @@ const request = require("supertest");
 const app = require("../src/app");
 
 const userEndpoint = "/users";
-const providedParams =
+const params =
   "?fav_color=red&dist=100&origin=37.774929,-122.419416&min_age=21&max_age=29";
 
 describe("/Users tests", () => {
@@ -19,7 +19,7 @@ describe("/Users tests", () => {
   describe("Request metadata", () => {
     test("should contain path and query data", async () => {
       const response = await request(app)
-        .get(`${userEndpoint}${providedParams}`)
+        .get(`${userEndpoint}${params}`)
         .set("Accept", "application/json");
 
       expect(response.status).toBe(200);

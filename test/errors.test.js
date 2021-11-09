@@ -16,6 +16,15 @@ describe("App", () => {
 
       expect(response.status).toBe(404);
       expect(response.body.error).toBe(`Path not found: ${nonexistentRoute}`);
+
+      const otherResponse = await request(app)
+        .get(`/users${nonexistentRoute}`)
+        .set("Accept", "application/json");
+
+      expect(otherResponse.status).toBe(404);
+      expect(otherResponse.body.error).toBe(
+        `Path not found: /users${nonexistentRoute}`
+      );
     });
   });
 });
