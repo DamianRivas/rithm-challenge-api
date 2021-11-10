@@ -2,6 +2,7 @@ const fs = require("fs").promises;
 const path = require("path");
 const parse = require("csv-parse/lib/sync");
 
+// Parses the provided CSV file and organizes the data for DB insertion
 async function parseData() {
   const content = await fs.readFile(
     path.join(__dirname, "../../..", "data", "users.csv")
@@ -37,21 +38,19 @@ async function parseData() {
 }
 
 exports.seed = function (knex) {
-  // Deletes ALL existing entries
-  console.log("Dropping database and parsing CSV");
+  // Delete contents of the databases and parse the CSV
   return knex("locations")
     .del()
-    .then(() => knex("users").del())
+    .then(() => knex.raw("TRUNCATE TABLE users RESTART IDENTITY CASCADE"))
     .then(parseData)
     .then(([data, locations]) => {
       const usersArray = [];
       for (let user of data.values()) {
         usersArray.push(user);
       }
-      console.log("CSV Parsed. Inserting data into database");
+      // Insert parsed data into database
       return knex("users")
         .insert(usersArray)
-        .then(() => knex("locations").insert(locations))
-        .then(() => console.log("Finished seeding database"));
+        .then(() => knex("locations").insert(locations));
     });
 };

@@ -1,21 +1,8 @@
 const router = require("express").Router();
+const methodNotAllowed = require("../errors/methodNotAllowed");
 
-router.route("/").get(function (req, res, next) {
-  const { query } = req;
-  if (query.dist) {
-    query.dist = Number(query.dist);
-  }
-  if (query.min_age) {
-    query.min_age = Number(query.min_age);
-  }
-  if (query.max_age) {
-    query.max_age = Number(query.max_age);
-  }
+const controller = require("../controllers/users.controller");
 
-  res.json({
-    metadata: { path: req.baseUrl, query },
-    results: "Nothing here yet",
-  });
-});
+router.route("/").get(controller.getUsers).all(methodNotAllowed);
 
 module.exports = router;
