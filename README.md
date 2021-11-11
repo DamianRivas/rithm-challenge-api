@@ -1,6 +1,6 @@
 # Rithm Challenge Submission: API
 
-The backend for my submission for the API technical challenge provided by Rithm
+The backend for my submission for the API technical challenge provided by Rithm. Check out the client [here](https://github.com/DamianRivas/rithm-challenge)
 
 ## Project Setup
 
@@ -33,6 +33,10 @@ npx knex seed:run
 ```console
 npm run start:dev
 ```
+
+### Tests
+
+To run tests, make sure the test database URL is populated in the `.env` file and run `npm test`
 
 ## Libraries and Technologies Used
 
