@@ -1,6 +1,6 @@
 # Rithm Challenge Submission: API
 
-My submission for the API technical challenge provided by Rithm
+The backend for my submission for the API technical challenge provided by Rithm
 
 ## Project Setup
 
