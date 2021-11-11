@@ -8,29 +8,29 @@ The backend for my submission for the API technical challenge provided by Rithm
 
 2. Install dependencies:
 
-```shell
+```console
 npm i
 ```
 
 3. Copy the contents of `.sample.env` into a `.env` file
-```shell
+```console
 cat .sample.env > .env
 ```
 
 4. Populate the `.env` file with your PostgreSQL database URL's (e.g., `postgres://user:password@127.0.0.1:5432`)
 
 5. Migrate the database:
-```
+```console
 npx knex migrate:latest
 ```
 
 6. Seed the database with csv data:
-```
+```console
 npx knex seed:run
 ```
 
 7. Run the dev server
-```
+```console
 npm run start:dev
 ```
 
