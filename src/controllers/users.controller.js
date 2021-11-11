@@ -17,6 +17,9 @@ function normalizeQuery(query) {
     const max_age = Number(query.max_age);
     query.max_age = isNaN(max_age) ? undefined : max_age;
   }
+  if (query.fav_color) {
+    query.fav_color = query.fav_color.toLowerCase();
+  }
 }
 
 function formatResultsToGeoJSON(users, locations) {

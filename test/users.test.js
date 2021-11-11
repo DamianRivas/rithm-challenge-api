@@ -26,6 +26,24 @@ describe("GET /Users tests", () => {
     await knex.migrate.rollback(null, true).then(() => knex.destroy());
   });
 
+  test("should normalize fav_color param", async () => {
+    const params = { fav_color: "ReD" };
+
+    let results = await knex("users")
+      .select("fav_color")
+      .where({ fav_color: "red" });
+    let resultCount = results.length;
+
+    let response = await request(app)
+      .get(endpoint)
+      .query(params)
+      .set("Accept", "application/json");
+
+    expect(response.status).toEqual(200);
+    expect(response.body.num_results).toEqual(resultCount);
+    expect(response.body.results[0]?.properties?.fav_color).toEqual("red");
+  });
+
   describe("should gracefully ignore invalid origin parameter", () => {
     test("invalid string", async () => {
       const params = { fav_color: "green", origin: "thisIsINVALID" };
