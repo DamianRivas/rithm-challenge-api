@@ -55,5 +55,8 @@ To run tests, make sure the test database URL is populated in the `.env` file an
   * First iteration: SQL LIMIT + OFFSET
 * Security
   * SQL Injection
+  * CORS
 * Tests
   * Code coverage
+  * test cases for large queries
+* CRUD
