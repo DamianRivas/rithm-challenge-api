@@ -48,3 +48,12 @@ To run tests, make sure the test database URL is populated in the `.env` file an
 * [Geolib](https://www.npmjs.com/package/geolib)
 * [Jest](https://jestjs.io/)
 * [csv-parse](https://csv.js.org/parse/)
+
+## To-Do
+
+* Support API pagination
+  * First iteration: SQL LIMIT + OFFSET
+* Security
+  * SQL Injection
+* Tests
+  * Code coverage
